@@ -1,0 +1,6 @@
+---
+- name: Raambabu
+  become: true
+  tasks: 
+  - name: Yum install -y Httpd server
+    yum: name=httpd state=latest

@@ -1,5 +1,6 @@
 ---
 - name: Raambabu
+  hosts: Raambabu
   become: true
   tasks: 
   - name: Yum install -y Httpd server

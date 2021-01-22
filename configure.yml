@@ -3,5 +3,5 @@
   hosts: Raambabu
   become: true
   tasks: 
-  - name: Yum install -y Httpd server
-    yum: name=httpd state=latest
+  - name: Yum remove -y Httpd server
+    yum: name=httpd state=absent

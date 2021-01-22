@@ -3,5 +3,17 @@
   hosts: Raambabu
   become: true
   tasks: 
-  - name: Yum remove -y Httpd server
-    yum: name=httpd state=absent
+  - name: create a directory
+    file: path=/var/test1 state=directory
+
+  - name: crate a file inside the directory
+    command: touch ram_file1
+    args:
+     chdir: /var/test1
+
+  - name: yum install HTTPD services
+    yum: name=httpd state=latest
+    notify: Httpd service restarted
+  handlers:
+  - name: Httpd service restarted
+    service: name=httpd state=started enabled=yes
